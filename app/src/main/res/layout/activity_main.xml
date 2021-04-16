@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/namefield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Name:"/>
+
+    <EditText
+        android:id="@+id/geschlechtfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Geschlecht:"/>
+
+    <EditText
+        android:id="@+id/rassefield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Rasse:" />
+
+    <EditText
+        android:id="@+id/geburtsjahrfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Geburtsjahr:" />
+
+    <Button
+        android:id="@+id/addDogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Dog" />
+
+    <Button
+        android:id="@+id/addCatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Cat" />
+
+    <Button
+        android:id="@+id/addRabbitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Rabbit" />
+
+    <Button
+        android:id="@+id/addBirdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Bird" />
+</LinearLayout>
