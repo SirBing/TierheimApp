@@ -6,21 +6,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.tierheimapplication.animals.Animal;
+import com.example.tierheimapplication.animals.Bird;
+import com.example.tierheimapplication.animals.Cat;
 import com.example.tierheimapplication.animals.Dog;
+import com.example.tierheimapplication.animals.Rabbit;
+import com.example.tierheimapplication.shelter.AnimalShelter;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonAddDog;
-    Button buttonAddCat;
-    Button buttonAddRabbit;
-    Button buttonAddBird;
+    AnimalShelter animalShelter;
+
+    Button addButton;
+
+    RadioGroup radioGroupAnimalType;
 
     EditText namefield;
-    EditText geschlechtfield;
-    EditText rassefield;
-    EditText geburtsjahrfield;
+    EditText genderfield;
+    EditText racefield;
+    EditText yearOfBirthfield;
+
+    public MainActivity() {
+        animalShelter = new AnimalShelter();
+    }
 
 
     @Override
@@ -28,20 +39,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        namefield = findViewById(R.id.namefield);
-        geschlechtfield = findViewById(R.id.geschlechtfield);
-        rassefield = findViewById(R.id.rassefield);
-        geburtsjahrfield = findViewById(R.id.geburtsjahrfield);
+        radioGroupAnimalType = findViewById(R.id.radioGroupAnimalType);
 
-        buttonAddDog = findViewById(R.id.addDogButton);
-        buttonAddDog.setOnClickListener(new View.OnClickListener() {
+        namefield = findViewById(R.id.namefield);
+        genderfield = findViewById(R.id.genderfield);
+        racefield = findViewById(R.id.racefield);
+        yearOfBirthfield = findViewById(R.id.yearOfBirthfield);
+
+        addButton = findViewById(R.id.addButton);
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = namefield.getText().toString();
-                String geschlecht = geschlechtfield.getText().toString();
-                String rasse = rassefield.getText().toString();
-                int geburtsjahr = Integer.parseInt(geburtsjahrfield.getText().toString());
-                Dog dog = new Dog(name, geschlecht, rasse, geburtsjahr);
+                String gender = genderfield.getText().toString();
+                String race = racefield.getText().toString();
+                int yearOfBirth = Integer.parseInt(yearOfBirthfield.getText().toString());
+
+                int animalTypeID = radioGroupAnimalType.getCheckedRadioButtonId();
+
+                Animal animal = null;
+
+                switch (animalTypeID) {
+                    case 1:
+                        animal = new Dog(name,gender, race, yearOfBirth);
+                        break;
+                    case 2:
+                        animal = new Cat(name,gender, race, yearOfBirth);
+                        break;
+                    case 3:
+                        animal = new Bird(name,gender, race, yearOfBirth);
+                        break;
+                    case 4:
+                        animal = new Rabbit(name,gender, race, yearOfBirth);
+                        break;
+                }
+
+                animalShelter.addAnimal(animal);
+
+
 
             }
         });

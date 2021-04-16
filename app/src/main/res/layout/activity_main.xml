@@ -7,51 +7,90 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type: " />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAnimalType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bird"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rabbit"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name: " />
+
     <EditText
         android:id="@+id/namefield"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name:"/>
 
-    <EditText
-        android:id="@+id/geschlechtfield"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Geschlecht:"/>
+        android:text="Gender: " />
 
     <EditText
-        android:id="@+id/rassefield"
-        android:layout_width="wrap_content"
+        android:id="@+id/genderfield"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Rasse:" />
+        android:hint="Gender:"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Race: " />
 
     <EditText
-        android:id="@+id/geburtsjahrfield"
-        android:layout_width="wrap_content"
+        android:id="@+id/racefield"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Geburtsjahr:" />
+        android:hint="Race:" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YearOfBirth: " />
+
+    <EditText
+        android:id="@+id/yearOfBirthfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="YearOfBirth:" />
 
     <Button
-        android:id="@+id/addDogButton"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Dog" />
+        android:layout_gravity="center"
+        android:text="Add Animal" />
 
-    <Button
-        android:id="@+id/addCatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Cat" />
 
-    <Button
-        android:id="@+id/addRabbitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Rabbit" />
-
-    <Button
-        android:id="@+id/addBirdButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Bird" />
 </LinearLayout>
