@@ -17,8 +17,12 @@ public class AnimalAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Animal> animalArrayList;
 
-    public  AnimalAdapter(ArrayList<Animal> animalArrayList) {
+    /*public  AnimalAdapter(ArrayList<Animal> animalArrayList) {
         this.animalArrayList = animalArrayList;
+    }*/
+
+    public AnimalAdapter() {
+
     }
 
     @NonNull
@@ -37,5 +41,10 @@ public class AnimalAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public int getItemCount() {
         return animalArrayList.size();
+    }
+
+    public void updateAnimallist (ArrayList<Animal> animalArrayList) {
+        this.animalArrayList = animalArrayList;
+        notifyDataSetChanged();
     }
 }

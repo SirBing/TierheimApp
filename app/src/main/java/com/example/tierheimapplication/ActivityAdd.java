@@ -1,31 +1,39 @@
 package com.example.tierheimapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tierheimapplication.animals.Animal;
 import com.example.tierheimapplication.animals.Bird;
 import com.example.tierheimapplication.animals.Cat;
 import com.example.tierheimapplication.animals.Dog;
 import com.example.tierheimapplication.animals.Rabbit;
+import com.example.tierheimapplication.presenters.AnimalAddPresenter;
+import com.example.tierheimapplication.viewInterfaces.IAnimalAddView;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityAdd extends AppCompatActivity implements IAnimalAddView {
 
 
-    Button addButton;
+    private Button addButton;
 
-    RadioGroup radioGroupAnimalType;
+    private RadioGroup radioGroupAnimalType;
 
-    EditText namefield;
-    EditText genderfield;
-    EditText racefield;
-    EditText yearOfBirthfield;
+    private EditText namefield;
+    private EditText genderfield;
+    private EditText racefield;
+    private EditText yearOfBirthfield;
 
+    private AnimalAddPresenter animalAddPresenter;
+
+    public ActivityAdd() {
+        animalAddPresenter = new AnimalAddPresenter(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +73,23 @@ public class MainActivity extends AppCompatActivity {
                 case 4:
                     animal = new Rabbit(name, gender, race, yearOfBirth);
                     break;
+                default:
+                    return;
             }
 
-            AnimalShelter.getInstance().addAnimal(animal);
-            finish();
+            animalAddPresenter.addAnimal(animal);
+
         }
         });
+    }
 
+    @Override
+    public void animalAddedSuccessfull() {
+        finish();
+    }
 
-
+    @Override
+    public void animalAddedFailed(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }

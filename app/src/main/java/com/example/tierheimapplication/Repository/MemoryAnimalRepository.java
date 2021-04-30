@@ -1,9 +1,8 @@
 package com.example.tierheimapplication.Repository;
 
-import java.util.ArrayList;
-
-import com.example.tierheimapplication.AnimalShelter;
 import com.example.tierheimapplication.animals.Animal;
+
+import java.util.ArrayList;
 
 
 
