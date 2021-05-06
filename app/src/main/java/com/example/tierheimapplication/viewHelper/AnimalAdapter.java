@@ -12,18 +12,9 @@ import com.example.tierheimapplication.animals.Animal;
 
 import java.util.ArrayList;
 
-
 public class AnimalAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Animal> animalArrayList;
-
-    /*public  AnimalAdapter(ArrayList<Animal> animalArrayList) {
-        this.animalArrayList = animalArrayList;
-    }*/
-
-    public AnimalAdapter() {
-
-    }
 
     @NonNull
     @Override

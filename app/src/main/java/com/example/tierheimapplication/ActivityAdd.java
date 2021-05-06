@@ -4,21 +4,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tierheimapplication.animals.Animal;
-import com.example.tierheimapplication.animals.Bird;
-import com.example.tierheimapplication.animals.Cat;
-import com.example.tierheimapplication.animals.Dog;
-import com.example.tierheimapplication.animals.Rabbit;
+import com.example.tierheimapplication.animals.*;
 import com.example.tierheimapplication.presenters.AnimalAddPresenter;
 import com.example.tierheimapplication.viewInterfaces.IAnimalAddView;
 
 public class ActivityAdd extends AppCompatActivity implements IAnimalAddView {
-
 
     private Button addButton;
 
@@ -56,40 +52,44 @@ public class ActivityAdd extends AppCompatActivity implements IAnimalAddView {
             String race = racefield.getText().toString();
             int yearOfBirth = Integer.parseInt(yearOfBirthfield.getText().toString());
 
-            int animalTypeID = radioGroupAnimalType.getCheckedRadioButtonId();
+            int radioButtonId = radioGroupAnimalType.getCheckedRadioButtonId();
+            RadioButton selectedRadioButton = findViewById(radioButtonId);
+            String selectedText = null;
+
+            if(selectedRadioButton != null) {
+                selectedText = selectedRadioButton.getText().toString();
+            }
 
             Animal animal = null;
 
-            switch (animalTypeID) {
-                case 1:
+            switch (selectedText) {
+                case "Dog":
                     animal = new Dog(name, gender, race, yearOfBirth);
                     break;
-                case 2:
+                case "Cat":
                     animal = new Cat(name, gender, race, yearOfBirth);
                     break;
-                case 3:
+                case "Bird":
                     animal = new Bird(name, gender, race, yearOfBirth);
                     break;
-                case 4:
+                case "Rabbit":
                     animal = new Rabbit(name, gender, race, yearOfBirth);
                     break;
                 default:
                     return;
             }
-
             animalAddPresenter.addAnimal(animal);
-
         }
         });
     }
 
     @Override
-    public void animalAddedSuccessfull() {
-        finish();
+    public void animalAddedFailed(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void animalAddedFailed(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    public void animalAddedSuccesfull() {
+        finish();
     }
 }

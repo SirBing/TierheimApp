@@ -29,7 +29,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         name_row_item.setText(animal.getName());
         race_row_item.setText((animal.getRace()));
         gender_row_item.setText(animal.getGender());
-        yearOfBirth_row_item.setText(animal.getYearOfBirth());
+        int yearOfBirth = animal.getYearOfBirth();
+        yearOfBirth_row_item.setText(String.valueOf(yearOfBirth));
 
     }
 

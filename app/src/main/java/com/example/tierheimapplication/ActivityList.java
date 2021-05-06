@@ -46,14 +46,11 @@ public class ActivityList extends AppCompatActivity implements IAnimalListView {
                 startActivity(intent);
             }
         });
-
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         //fetch data
         animalListPresenter.getCurrentAnimals();
     }
