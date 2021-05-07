@@ -90,6 +90,7 @@ public class ActivityAdd extends AppCompatActivity implements IAnimalAddView {
 
     @Override
     public void animalAddedSuccesfull() {
+       System.out.println("Test");
         finish();
     }
 }
